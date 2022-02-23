@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 
+
 namespace Example
 {
     public partial class Form1 : Form
     {
         SerialPort Serial = new SerialPort();
+        ModBus modbus;
 
         public Form1()
         {
@@ -50,6 +52,7 @@ namespace Example
                 try
                 {
                     Serial.Open();
+                    modbus = new ModBus(Serial);
                     SerialStatus.BackColor = Color.DodgerBlue;
                 }
                 catch
@@ -59,6 +62,12 @@ namespace Example
                 }
 
             }
+        }
+
+        private void ReadRegister_ButtonClick(object sender, EventArgs e)
+        {
+            modbus.Read_Request(4, 0, 14);
+            //MessageBox.Show(string.Join(" ,", modbus.Income_Data));
         }
     }
 }
