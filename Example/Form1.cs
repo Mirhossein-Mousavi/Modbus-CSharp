@@ -66,7 +66,8 @@ namespace Example
 
         private void ReadRegister_ButtonClick(object sender, EventArgs e)
         {
-            modbus.Read_Request(4, 0, 14);
+            var a= modbus.Read_Request(4, 0, 14);
+            MessageBox.Show(string.Join(" ,", a));
             //MessageBox.Show(string.Join(" ,", modbus.Income_Data));
         }
     }

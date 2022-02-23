@@ -12,10 +12,8 @@ namespace Example
     class ModBus
     {
         SerialPort _Serial;
-        public List<int> Income_Data = new List<int>();
-
-        int BytesToRead;
-        Mode _mode = Mode.Ideal;
+        private int _serial_time_out = 1000;
+        private int BytesToRead;
 
         public ModBus(SerialPort Ser)
         {
@@ -27,6 +25,20 @@ namespace Example
             _Serial.Parity = Parity.None;
 
             //_Serial.DataReceived += _Serial_DataReceived;
+        }
+
+
+        public int ReadTimeOut
+        {
+            get { return _serial_time_out; }
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException(
+                          $"{nameof(value)} must be positive.");
+
+                _serial_time_out = value;
+            }
         }
 
         UInt16 Checksum(List<byte> Buffer)
@@ -74,54 +86,40 @@ namespace Example
             Final_Data.Add(highByte(crc));
             Final_Data.Add(lowByte(crc));
 
-            _mode = Mode.Write;
             BytesToRead = 8;
             _Serial.Write(Final_Data.ToArray(), 0, Final_Data.Count);
             System.Threading.Thread.Sleep(100);
         }
 
-        public void Read_Request(byte SlaveId,int StartAddress,int Count)
+        public List<int> Read_Request(byte SlaveId, int StartAddress, int Count)
         {
-            Income_Data.Clear();
-            byte[] Get_Ready = new byte[] { SlaveId,3,highByte(StartAddress),lowByte(StartAddress), highByte(Count),lowByte(Count) };
+            List<byte> Ask_Data = new byte[] { SlaveId, 3, highByte(StartAddress), lowByte(StartAddress), highByte(Count), lowByte(Count) }.ToList();
+            int crc = Checksum(Ask_Data);
 
-            List<byte> Final_Data = Get_Ready.ToList();
-            int crc = Checksum(Final_Data);
-
-            Final_Data.Add(highByte(crc));
-            Final_Data.Add(lowByte(crc));
-
-            _mode = Mode.Read;
+            Ask_Data.AddRange(new byte[] { highByte(crc), lowByte(crc) });
             BytesToRead = Count * 2 + 5;
-            _Serial.Write(Final_Data.ToArray(), 0, Final_Data.Count);
-            System.Threading.Thread.Sleep(100);
+            byte[] buffer = new byte[BytesToRead];
 
-            _Serial.ReadTimeout = 30;
-            byte[] a = new byte[Count * 2 + 5];
-            _Serial.Read(a, 0, Count * 2 + 5);
-            MessageBox.Show(string.Join(" ,", a));
+            _Serial.Write(Ask_Data.ToArray(), 0, Ask_Data.Count);
+            System.Threading.Thread.Sleep(50);
+            _Serial.ReadTimeout = _serial_time_out;
+            _Serial.Read(buffer, 0, BytesToRead);
 
-            //List<byte> Raw_Data = new List<byte>();
-            //for (int i = 3; i < Raw_Data.Count - 2 && Raw_Data[1] == 3; i += 2)
-            //    Income_Data.Add(CombineBytes(Raw_Data[i], Raw_Data[i + 1]));
+            byte[] Data_CRC = buffer.Where((source, index) => index >= buffer.Length - 2).ToArray();
+            buffer = buffer.Where((source, index) => index < buffer.Length - 2).ToArray();
+            //MessageBox.Show(string.Join(" ,", Data_CRC));
 
-            //MessageBox.Show(string.Join(" ,", Income_Data));
+            int i = Checksum(buffer.ToList());
+            if (highByte(i) == Data_CRC[0] && lowByte(i) == Data_CRC[1])           //checksum is correct
+            {
+                //MessageBox.Show(string.Join(" ,", buffer));
+                List<int> Data = new List<int>();
+                for (int j = 3; j < buffer.Length; j += 2) Data.Add(CombineBytes(buffer[j], buffer[j + 1]));
+                return Data;
+            }
+            else return null;  //checksum is correct.so data is not valid
         }
-
-        private void _Serial_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            List<byte> Raw_Data = new List<byte>();
-
-            Income_Data.Clear();           //commented
-            for (int i = 0; i < BytesToRead; i++) Raw_Data.Add((byte)_Serial.ReadByte());
-            //MessageBox.Show(string.Join(" ,", Raw_Data));
-
-
-            for (int i = 3; i < Raw_Data.Count - 2 && Raw_Data[1] == 3; i += 2)
-                Income_Data.Add(CombineBytes(Raw_Data[i], Raw_Data[i + 1]));
-            
-            
-        }
+       
 
         enum Mode
         {
