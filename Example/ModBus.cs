@@ -13,7 +13,6 @@ namespace Example
     {
         SerialPort _Serial;
         private int _serial_time_out = 1000;
-        private int BytesToRead;
 
         public ModBus(SerialPort Ser)
         {
@@ -70,25 +69,29 @@ namespace Example
 
         private int CombineBytes(byte High, byte Low) { return (High << 8) | Low; }
 
-        public void Write_Request(byte SlaveId, int StartAddress, int[] Data)
+        public bool Write_Request(byte SlaveId, int StartAddress, int[] Data)
         {
+            List<byte> Ask_Data = new byte[] { SlaveId, 16, highByte(StartAddress), lowByte(StartAddress), highByte(Data.Length), lowByte(Data.Length), (byte)(Data.Length * 2) }.ToList();
+            foreach (int i in Data) Ask_Data.AddRange(new byte[] { highByte(i), lowByte(i) });
+            int crc = Checksum(Ask_Data);
+            Ask_Data.AddRange(new byte[] { highByte(crc), lowByte(crc) });
 
-            byte[] Get_Ready = new byte[] { SlaveId, 16, highByte(StartAddress), lowByte(StartAddress), highByte(Data.Length), lowByte(Data.Length), (byte)(Data.Length * 2) };
-
-            List<byte> Final_Data = Get_Ready.ToList();
-            foreach (int i in Data)
+            _Serial.Write(Ask_Data.ToArray(), 0, Ask_Data.Count);
+            System.Threading.Thread.Sleep(50);
+            byte[] buffer = new byte[8];
+            try
             {
-                Final_Data.Add(highByte(i));
-                Final_Data.Add(lowByte(i));
+                _Serial.ReadTimeout = _serial_time_out;
+                _Serial.Read(buffer, 0, 8);
+                List<byte> CheckData = new byte[] { SlaveId, 16, highByte(StartAddress), lowByte(StartAddress), highByte(Data.Length), lowByte(Data.Length)}.ToList();
+                crc = Checksum(CheckData);
+                CheckData.AddRange(new byte[] { highByte(crc), lowByte(crc) });
+                return buffer.SequenceEqual(CheckData.ToArray());
             }
-
-            int crc = Checksum(Final_Data);
-            Final_Data.Add(highByte(crc));
-            Final_Data.Add(lowByte(crc));
-
-            BytesToRead = 8;
-            _Serial.Write(Final_Data.ToArray(), 0, Final_Data.Count);
-            System.Threading.Thread.Sleep(100);
+            catch
+            {
+                return false;
+            }
         }
 
         public List<int> Read_Request(byte SlaveId, int StartAddress, int Count)
@@ -97,13 +100,12 @@ namespace Example
             int crc = Checksum(Ask_Data);
 
             Ask_Data.AddRange(new byte[] { highByte(crc), lowByte(crc) });
-            BytesToRead = Count * 2 + 5;
-            byte[] buffer = new byte[BytesToRead];
+            byte[] buffer = new byte[Count * 2 + 5];
 
             _Serial.Write(Ask_Data.ToArray(), 0, Ask_Data.Count);
             System.Threading.Thread.Sleep(50);
             _Serial.ReadTimeout = _serial_time_out;
-            _Serial.Read(buffer, 0, BytesToRead);
+            _Serial.Read(buffer, 0, Count * 2 + 5);
 
             byte[] Data_CRC = buffer.Where((source, index) => index >= buffer.Length - 2).ToArray();
             buffer = buffer.Where((source, index) => index < buffer.Length - 2).ToArray();
@@ -117,7 +119,7 @@ namespace Example
                 for (int j = 3; j < buffer.Length; j += 2) Data.Add(CombineBytes(buffer[j], buffer[j + 1]));
                 return Data;
             }
-            else return null;  //checksum is correct.so data is not valid
+            else return null;  //checksum is not correct.so data is not valid
         }
        
 
