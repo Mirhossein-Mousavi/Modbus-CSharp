@@ -38,13 +38,20 @@
             this.SerialStatus = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ReadRegisterTab = new System.Windows.Forms.TabPage();
+            this.ReadRegisterList = new System.Windows.Forms.ListBox();
+            this.mod3configs = new System.Windows.Forms.GroupBox();
+            this.count3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.startaddress3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Slaveid3 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ReadRegisterButt = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.mod16configs = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.SerialGroupBox.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ReadRegisterTab.SuspendLayout();
-            this.mod16configs.SuspendLayout();
+            this.mod3configs.SuspendLayout();
             this.SuspendLayout();
             // 
             // SerialPorts
@@ -142,7 +149,8 @@
             // ReadRegisterTab
             // 
             this.ReadRegisterTab.AutoScroll = true;
-            this.ReadRegisterTab.Controls.Add(this.mod16configs);
+            this.ReadRegisterTab.Controls.Add(this.ReadRegisterList);
+            this.ReadRegisterTab.Controls.Add(this.mod3configs);
             this.ReadRegisterTab.Location = new System.Drawing.Point(4, 24);
             this.ReadRegisterTab.Name = "ReadRegisterTab";
             this.ReadRegisterTab.Padding = new System.Windows.Forms.Padding(3);
@@ -151,6 +159,100 @@
             this.ReadRegisterTab.Text = "Read Register";
             this.ReadRegisterTab.UseVisualStyleBackColor = true;
             // 
+            // ReadRegisterList
+            // 
+            this.ReadRegisterList.BackColor = System.Drawing.SystemColors.Window;
+            this.ReadRegisterList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ReadRegisterList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReadRegisterList.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReadRegisterList.FormattingEnabled = true;
+            this.ReadRegisterList.ItemHeight = 17;
+            this.ReadRegisterList.Location = new System.Drawing.Point(3, 75);
+            this.ReadRegisterList.Name = "ReadRegisterList";
+            this.ReadRegisterList.Size = new System.Drawing.Size(495, 235);
+            this.ReadRegisterList.TabIndex = 1;
+            // 
+            // mod3configs
+            // 
+            this.mod3configs.Controls.Add(this.count3);
+            this.mod3configs.Controls.Add(this.label3);
+            this.mod3configs.Controls.Add(this.startaddress3);
+            this.mod3configs.Controls.Add(this.label2);
+            this.mod3configs.Controls.Add(this.Slaveid3);
+            this.mod3configs.Controls.Add(this.label1);
+            this.mod3configs.Controls.Add(this.ReadRegisterButt);
+            this.mod3configs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mod3configs.Location = new System.Drawing.Point(3, 3);
+            this.mod3configs.Name = "mod3configs";
+            this.mod3configs.Size = new System.Drawing.Size(495, 72);
+            this.mod3configs.TabIndex = 0;
+            this.mod3configs.TabStop = false;
+            this.mod3configs.Text = "Config";
+            // 
+            // count3
+            // 
+            this.count3.Location = new System.Drawing.Point(352, 28);
+            this.count3.MaxLength = 3;
+            this.count3.Name = "count3";
+            this.count3.Size = new System.Drawing.Size(50, 23);
+            this.count3.TabIndex = 6;
+            this.count3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(300, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 15);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Count :";
+            // 
+            // startaddress3
+            // 
+            this.startaddress3.Location = new System.Drawing.Point(227, 28);
+            this.startaddress3.MaxLength = 2;
+            this.startaddress3.Name = "startaddress3";
+            this.startaddress3.Size = new System.Drawing.Size(50, 23);
+            this.startaddress3.TabIndex = 4;
+            this.startaddress3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(136, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Start Address :";
+            // 
+            // Slaveid3
+            // 
+            this.Slaveid3.Location = new System.Drawing.Point(66, 28);
+            this.Slaveid3.MaxLength = 3;
+            this.Slaveid3.Name = "Slaveid3";
+            this.Slaveid3.Size = new System.Drawing.Size(50, 23);
+            this.Slaveid3.TabIndex = 2;
+            this.Slaveid3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "SlaveID :";
+            // 
+            // ReadRegisterButt
+            // 
+            this.ReadRegisterButt.Location = new System.Drawing.Point(414, 24);
+            this.ReadRegisterButt.Name = "ReadRegisterButt";
+            this.ReadRegisterButt.Size = new System.Drawing.Size(75, 32);
+            this.ReadRegisterButt.TabIndex = 0;
+            this.ReadRegisterButt.Text = "Read";
+            this.ReadRegisterButt.UseVisualStyleBackColor = true;
+            this.ReadRegisterButt.Click += new System.EventHandler(this.ReadRegister_ButtonClick);
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
@@ -158,29 +260,8 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(501, 313);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Write Register";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // mod16configs
-            // 
-            this.mod16configs.Controls.Add(this.button1);
-            this.mod16configs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mod16configs.Location = new System.Drawing.Point(3, 3);
-            this.mod16configs.Name = "mod16configs";
-            this.mod16configs.Size = new System.Drawing.Size(495, 72);
-            this.mod16configs.TabIndex = 0;
-            this.mod16configs.TabStop = false;
-            this.mod16configs.Text = "Config";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(403, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ReadRegister_ButtonClick);
             // 
             // Form1
             // 
@@ -200,7 +281,8 @@
             this.SerialGroupBox.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.ReadRegisterTab.ResumeLayout(false);
-            this.mod16configs.ResumeLayout(false);
+            this.mod3configs.ResumeLayout(false);
+            this.mod3configs.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -218,8 +300,15 @@
         private System.Windows.Forms.TabPage ReadRegisterTab;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label PortLabel;
-        private System.Windows.Forms.GroupBox mod16configs;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox mod3configs;
+        private System.Windows.Forms.Button ReadRegisterButt;
+        private System.Windows.Forms.ListBox ReadRegisterList;
+        private System.Windows.Forms.TextBox count3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox startaddress3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox Slaveid3;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -66,11 +66,24 @@ namespace Example
 
         private void ReadRegister_ButtonClick(object sender, EventArgs e)
         {
-            modbus.Write_Request(4, 0, new int[] { 0, 0, 0 });
+            if (!Serial.IsOpen) MessageBox.Show("Serial is not Connected.", "Serial Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            var a = modbus.Read_Request(4, 0, 14);
-            MessageBox.Show(string.Join(" ,", a));
-            //MessageBox.Show(string.Join(" ,", modbus.Income_Data));
+            else if (mod3configs.Controls.OfType<TextBox>().AsQueryable().Any(x => x.Text == string.Empty)) MessageBox.Show("Please fill all textboxs.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            else if (Convert.ToInt32(Slaveid3.Text) > 255) MessageBox.Show("SlaveID must be less than 255.", "Value Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            else
+            {
+                List<int> Data = modbus.Read_Request(Convert.ToByte(Slaveid3.Text), Convert.ToInt32(startaddress3.Text), Convert.ToInt32(count3.Text));
+
+                ReadRegisterList.Items.Clear();
+
+                ReadRegisterList.Items.AddRange(Data.Select((x, n) => "Address : " + (n + Convert.ToByte(startaddress3.Text)).ToString() + "        Value : " + x.ToString()).ToArray());
+            }
+            //modbus.Write_Request(4, 0, new int[] { 1, 5, 5 });
+
+            //var a = modbus.Read_Request(4, 0, 13);
+            //MessageBox.Show(string.Join(" ,", a));
         }
     }
 }

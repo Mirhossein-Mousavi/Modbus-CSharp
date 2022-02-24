@@ -63,11 +63,11 @@ namespace Example
             return (UInt16)temp;
         }
 
-        private byte highByte(int w) { return (byte)((w) >> 8); }
+        private Func<int, byte> highByte = w => (byte)((w) >> 8); //or private byte highByte(int w) { return (byte)((w) >> 8); }
 
-        private byte lowByte(int w) { return (byte)((w) & 0xff); }
+        private Func<int, byte> lowByte = w => (byte)((w) & 0xff); //or private byte lowByte(int w) { return (byte)((w) & 0xff); }
 
-        private int CombineBytes(byte High, byte Low) { return (High << 8) | Low; }
+        private Func<byte, byte, int> CombineBytes = (High, Low) => ((High << 8) | Low); //or private int CombineBytes(byte High, byte Low) { return (High << 8) | Low; }
 
         public bool Write_Request(byte SlaveId, int StartAddress, int[] Data)
         {
@@ -90,7 +90,7 @@ namespace Example
             }
             catch
             {
-                return false;
+                throw new TimeoutException("no response from target. check the serial connection!");
             }
         }
 
@@ -104,8 +104,15 @@ namespace Example
 
             _Serial.Write(Ask_Data.ToArray(), 0, Ask_Data.Count);
             System.Threading.Thread.Sleep(50);
-            _Serial.ReadTimeout = _serial_time_out;
-            _Serial.Read(buffer, 0, Count * 2 + 5);
+            try
+            {
+                _Serial.ReadTimeout = _serial_time_out;
+                _Serial.Read(buffer, 0, Count * 2 + 5);
+            }
+            catch
+            {
+                throw new TimeoutException("no response from target. check the serial connection!"); 
+            }
 
             byte[] Data_CRC = buffer.Where((source, index) => index >= buffer.Length - 2).ToArray();
             buffer = buffer.Where((source, index) => index < buffer.Length - 2).ToArray();
