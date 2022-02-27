@@ -48,10 +48,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ReadRegisterButt = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.mod16configs = new System.Windows.Forms.GroupBox();
+            this.count16 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.startaddress16 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Slaveid16 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.WriteRegisterPanel = new System.Windows.Forms.Panel();
             this.SerialGroupBox.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ReadRegisterTab.SuspendLayout();
             this.mod3configs.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.mod16configs.SuspendLayout();
             this.SuspendLayout();
             // 
             // SerialPorts
@@ -102,7 +113,7 @@
             this.SerialConnect.Location = new System.Drawing.Point(20, 128);
             this.SerialConnect.Name = "SerialConnect";
             this.SerialConnect.Size = new System.Drawing.Size(135, 23);
-            this.SerialConnect.TabIndex = 2;
+            this.SerialConnect.TabIndex = 4;
             this.SerialConnect.Text = "Connect";
             this.SerialConnect.UseVisualStyleBackColor = true;
             this.SerialConnect.Click += new System.EventHandler(this.SerialConnect_Click);
@@ -113,7 +124,7 @@
             this.BaudrateTextbox.MaxLength = 6;
             this.BaudrateTextbox.Name = "BaudrateTextbox";
             this.BaudrateTextbox.Size = new System.Drawing.Size(80, 23);
-            this.BaudrateTextbox.TabIndex = 4;
+            this.BaudrateTextbox.TabIndex = 2;
             this.BaudrateTextbox.Text = "115200";
             this.BaudrateTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._KeyPress);
             // 
@@ -144,7 +155,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(509, 341);
-            this.tabControl1.TabIndex = 3;
+            this.tabControl1.TabIndex = 2;
             // 
             // ReadRegisterTab
             // 
@@ -195,7 +206,7 @@
             this.count3.MaxLength = 3;
             this.count3.Name = "count3";
             this.count3.Size = new System.Drawing.Size(50, 23);
-            this.count3.TabIndex = 6;
+            this.count3.TabIndex = 2;
             this.count3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._KeyPress);
             // 
             // label3
@@ -204,7 +215,7 @@
             this.label3.Location = new System.Drawing.Point(300, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 15);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 2;
             this.label3.Text = "Count :";
             // 
             // startaddress3
@@ -213,7 +224,7 @@
             this.startaddress3.MaxLength = 2;
             this.startaddress3.Name = "startaddress3";
             this.startaddress3.Size = new System.Drawing.Size(50, 23);
-            this.startaddress3.TabIndex = 4;
+            this.startaddress3.TabIndex = 1;
             this.startaddress3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._KeyPress);
             // 
             // label2
@@ -222,7 +233,7 @@
             this.label2.Location = new System.Drawing.Point(136, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 15);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 1;
             this.label2.Text = "Start Address :";
             // 
             // Slaveid3
@@ -231,7 +242,7 @@
             this.Slaveid3.MaxLength = 3;
             this.Slaveid3.Name = "Slaveid3";
             this.Slaveid3.Size = new System.Drawing.Size(50, 23);
-            this.Slaveid3.TabIndex = 2;
+            this.Slaveid3.TabIndex = 0;
             this.Slaveid3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._KeyPress);
             // 
             // label1
@@ -240,7 +251,7 @@
             this.label1.Location = new System.Drawing.Point(8, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 15);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "SlaveID :";
             // 
             // ReadRegisterButt
@@ -248,13 +259,15 @@
             this.ReadRegisterButt.Location = new System.Drawing.Point(414, 24);
             this.ReadRegisterButt.Name = "ReadRegisterButt";
             this.ReadRegisterButt.Size = new System.Drawing.Size(75, 32);
-            this.ReadRegisterButt.TabIndex = 0;
+            this.ReadRegisterButt.TabIndex = 3;
             this.ReadRegisterButt.Text = "Read";
             this.ReadRegisterButt.UseVisualStyleBackColor = true;
             this.ReadRegisterButt.Click += new System.EventHandler(this.ReadRegister_ButtonClick);
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.WriteRegisterPanel);
+            this.tabPage2.Controls.Add(this.mod16configs);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -262,6 +275,96 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Write Register";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // mod16configs
+            // 
+            this.mod16configs.Controls.Add(this.button1);
+            this.mod16configs.Controls.Add(this.count16);
+            this.mod16configs.Controls.Add(this.label4);
+            this.mod16configs.Controls.Add(this.startaddress16);
+            this.mod16configs.Controls.Add(this.label5);
+            this.mod16configs.Controls.Add(this.Slaveid16);
+            this.mod16configs.Controls.Add(this.label6);
+            this.mod16configs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mod16configs.Location = new System.Drawing.Point(3, 3);
+            this.mod16configs.Name = "mod16configs";
+            this.mod16configs.Size = new System.Drawing.Size(495, 72);
+            this.mod16configs.TabIndex = 0;
+            this.mod16configs.TabStop = false;
+            this.mod16configs.Text = "Config";
+            // 
+            // count16
+            // 
+            this.count16.Location = new System.Drawing.Point(352, 28);
+            this.count16.MaxLength = 3;
+            this.count16.Name = "count16";
+            this.count16.Size = new System.Drawing.Size(50, 23);
+            this.count16.TabIndex = 2;
+            this.count16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(300, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 15);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Count :";
+            // 
+            // startaddress16
+            // 
+            this.startaddress16.Location = new System.Drawing.Point(227, 28);
+            this.startaddress16.MaxLength = 2;
+            this.startaddress16.Name = "startaddress16";
+            this.startaddress16.Size = new System.Drawing.Size(50, 23);
+            this.startaddress16.TabIndex = 1;
+            this.startaddress16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(136, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 15);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Start Address :";
+            // 
+            // Slaveid16
+            // 
+            this.Slaveid16.Location = new System.Drawing.Point(66, 28);
+            this.Slaveid16.MaxLength = 3;
+            this.Slaveid16.Name = "Slaveid16";
+            this.Slaveid16.Size = new System.Drawing.Size(50, 23);
+            this.Slaveid16.TabIndex = 0;
+            this.Slaveid16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 31);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 15);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "SlaveID :";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(414, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 32);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Set";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.WriteRegisterSet_CLK);
+            // 
+            // WriteRegisterPanel
+            // 
+            this.WriteRegisterPanel.AutoScroll = true;
+            this.WriteRegisterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WriteRegisterPanel.Location = new System.Drawing.Point(3, 75);
+            this.WriteRegisterPanel.Name = "WriteRegisterPanel";
+            this.WriteRegisterPanel.Size = new System.Drawing.Size(495, 235);
+            this.WriteRegisterPanel.TabIndex = 1;
             // 
             // Form1
             // 
@@ -283,6 +386,9 @@
             this.ReadRegisterTab.ResumeLayout(false);
             this.mod3configs.ResumeLayout(false);
             this.mod3configs.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.mod16configs.ResumeLayout(false);
+            this.mod16configs.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -309,6 +415,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Slaveid3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox mod16configs;
+        private System.Windows.Forms.TextBox count16;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox startaddress16;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox Slaveid16;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel WriteRegisterPanel;
     }
 }
 

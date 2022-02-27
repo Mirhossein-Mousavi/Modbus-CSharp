@@ -85,5 +85,44 @@ namespace Example
             //var a = modbus.Read_Request(4, 0, 13);
             //MessageBox.Show(string.Join(" ,", a));
         }
+
+        private void WriteRegisterSet_CLK(object sender, EventArgs e)
+        {
+            if (!Serial.IsOpen) MessageBox.Show("Serial is not Connected.", "Serial Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            else if (mod16configs.Controls.OfType<TextBox>().AsQueryable().Any(x => x.Text == string.Empty)) MessageBox.Show("Please fill all textboxs.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            else if (Convert.ToInt32(Slaveid16.Text) > 255) MessageBox.Show("SlaveID must be less than 255.", "Value Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            else
+            {
+                WriteRegisterPanel.Controls.Clear();
+                byte slaveid = Convert.ToByte(Slaveid16.Text);
+                int startAdd = Convert.ToInt32(startaddress16.Text);
+                int count = Convert.ToInt32(count16.Text);
+
+                WriteRegisterPanel.Hide();
+                for (int i = 0; i < count; i++)
+                {
+                    Label label = new Label();
+                    label.Text = (startAdd + i).ToString() + " :";
+                    label.AutoSize = true;
+                    WriteRegisterPanel.Controls.Add(label);
+                    label.Location = new Point(10, i * 30 + 9);
+
+                    TextBox textBox = new TextBox();
+                    textBox.Width = 30;
+                    textBox.Text = "0";
+                    textBox.TextAlign = HorizontalAlignment.Center;
+                    textBox.KeyPress += _KeyPress;
+                    WriteRegisterPanel.Controls.Add(textBox);
+                    textBox.Location = new Point(50, i * 30 + 5);
+                }
+                WriteRegisterPanel.Show();
+
+
+
+            }
+        }
     }
 }
