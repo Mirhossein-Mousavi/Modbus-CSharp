@@ -48,15 +48,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ReadRegisterButt = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.WriteRegisterPanel = new System.Windows.Forms.Panel();
             this.mod16configs = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.count16 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.startaddress16 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Slaveid16 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.WriteRegisterPanel = new System.Windows.Forms.Panel();
+            this.WriteRegisterButt = new System.Windows.Forms.Button();
             this.SerialGroupBox.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ReadRegisterTab.SuspendLayout();
@@ -266,6 +267,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.WriteRegisterButt);
             this.tabPage2.Controls.Add(this.WriteRegisterPanel);
             this.tabPage2.Controls.Add(this.mod16configs);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
@@ -275,6 +277,15 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Write Register";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // WriteRegisterPanel
+            // 
+            this.WriteRegisterPanel.AutoScroll = true;
+            this.WriteRegisterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WriteRegisterPanel.Location = new System.Drawing.Point(3, 75);
+            this.WriteRegisterPanel.Name = "WriteRegisterPanel";
+            this.WriteRegisterPanel.Size = new System.Drawing.Size(495, 235);
+            this.WriteRegisterPanel.TabIndex = 1;
             // 
             // mod16configs
             // 
@@ -292,6 +303,16 @@
             this.mod16configs.TabIndex = 0;
             this.mod16configs.TabStop = false;
             this.mod16configs.Text = "Config";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(414, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 32);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Set";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.WriteRegisterSet_CLK);
             // 
             // count16
             // 
@@ -347,24 +368,17 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "SlaveID :";
             // 
-            // button1
+            // WriteRegisterButt
             // 
-            this.button1.Location = new System.Drawing.Point(414, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 32);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Set";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.WriteRegisterSet_CLK);
-            // 
-            // WriteRegisterPanel
-            // 
-            this.WriteRegisterPanel.AutoScroll = true;
-            this.WriteRegisterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.WriteRegisterPanel.Location = new System.Drawing.Point(3, 75);
-            this.WriteRegisterPanel.Name = "WriteRegisterPanel";
-            this.WriteRegisterPanel.Size = new System.Drawing.Size(495, 235);
-            this.WriteRegisterPanel.TabIndex = 1;
+            this.WriteRegisterButt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.WriteRegisterButt.Location = new System.Drawing.Point(399, 281);
+            this.WriteRegisterButt.Name = "WriteRegisterButt";
+            this.WriteRegisterButt.Size = new System.Drawing.Size(75, 25);
+            this.WriteRegisterButt.TabIndex = 7;
+            this.WriteRegisterButt.Text = "Write";
+            this.WriteRegisterButt.UseVisualStyleBackColor = true;
+            this.WriteRegisterButt.Visible = false;
+            this.WriteRegisterButt.Click += new System.EventHandler(this.WriteRegisterButt_Click);
             // 
             // Form1
             // 
@@ -424,6 +438,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel WriteRegisterPanel;
+        private System.Windows.Forms.Button WriteRegisterButt;
     }
 }
 

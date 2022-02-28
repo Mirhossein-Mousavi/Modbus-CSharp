@@ -78,7 +78,7 @@ namespace Example
 
                 ReadRegisterList.Items.Clear();
 
-                ReadRegisterList.Items.AddRange(Data.Select((x, n) => "Address : " + (n + Convert.ToByte(startaddress3.Text)).ToString() + "        Value : " + x.ToString()).ToArray());
+                ReadRegisterList.Items.AddRange(Data.Select((x, n) => "Address :" + (n + Convert.ToByte(startaddress3.Text)).ToString() + "        Value : " + x.ToString()).ToArray());
             }
             //modbus.Write_Request(4, 0, new int[] { 1, 5, 5 });
 
@@ -118,11 +118,18 @@ namespace Example
                     WriteRegisterPanel.Controls.Add(textBox);
                     textBox.Location = new Point(50, i * 30 + 5);
                 }
+                WriteRegisterButt.Visible = true;
+
                 WriteRegisterPanel.Show();
-
-
-
             }
+        }
+
+        private void WriteRegisterButt_Click(object sender, EventArgs e)
+        {
+            byte slaveid = Convert.ToByte(Slaveid16.Text);
+            int startAdd = Convert.ToInt32(startaddress16.Text);
+            bool success= modbus.Write_Request(slaveid, startAdd, WriteRegisterPanel.Controls.OfType<TextBox>().Select(x => Convert.ToInt32(x.Text)).ToArray());
+            MessageBox.Show(success ? "Writing register is Successfull :)" : "Writing register Failed :(");
         }
     }
 }
