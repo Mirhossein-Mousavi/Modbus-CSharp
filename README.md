@@ -7,6 +7,8 @@
 ### Functions :
 
 ```csharp
+ModBus(SerialPort Ser)
+
 bool WriteRegister_Request(byte SlaveId, int StartAddress, int[] Data) {...}
 
 List<int> ReadRegister_Request(byte SlaveId, int StartAddress, int Count) {...}
