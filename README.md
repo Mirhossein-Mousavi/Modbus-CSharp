@@ -7,7 +7,7 @@
 ### Functions :
 
 ```csharp
-ModBus(SerialPort Ser)
+ModBus(SerialPort Ser) {...}
 
 bool WriteRegister_Request(byte SlaveId, int StartAddress, int[] Data) {...}
 
