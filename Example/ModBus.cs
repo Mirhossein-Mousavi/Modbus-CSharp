@@ -18,16 +18,14 @@ namespace Example
         {
             _Serial = Ser;
 
-            //_Serial.BaudRate = 115200;
+            //_Serial.BaudRate = 115_200;
             _Serial.StopBits = StopBits.One;
             _Serial.DataBits = 8;
             _Serial.Parity = Parity.None;
-
-            //_Serial.DataReceived += _Serial_DataReceived;
         }
 
 
-        public int ReadTimeOut
+        public int ReadTimeOut      //ms
         {
             get { return _serial_time_out; }
             set
@@ -69,7 +67,7 @@ namespace Example
 
         private Func<byte, byte, int> CombineBytes = (High, Low) => ((High << 8) | Low); //or private int CombineBytes(byte High, byte Low) { return (High << 8) | Low; }
 
-        public bool Write_Request(byte SlaveId, int StartAddress, int[] Data)
+        public bool WriteRegister_Request(byte SlaveId, int StartAddress, int[] Data)
         {
             List<byte> Ask_Data = new byte[] { SlaveId, 16, highByte(StartAddress), lowByte(StartAddress), highByte(Data.Length), lowByte(Data.Length), (byte)(Data.Length * 2) }.ToList();
             foreach (int i in Data) Ask_Data.AddRange(new byte[] { highByte(i), lowByte(i) });
@@ -94,7 +92,7 @@ namespace Example
             }
         }
 
-        public List<int> Read_Request(byte SlaveId, int StartAddress, int Count)
+        public List<int> ReadRegister_Request(byte SlaveId, int StartAddress, int Count)
         {
             List<byte> Ask_Data = new byte[] { SlaveId, 3, highByte(StartAddress), lowByte(StartAddress), highByte(Count), lowByte(Count) }.ToList();
             int crc = Checksum(Ask_Data);
@@ -127,14 +125,6 @@ namespace Example
                 return Data;
             }
             else return null;  //checksum is not correct.so data is not valid
-        }
-       
-
-        enum Mode
-        {
-            Ideal = -1,
-            Read = 0,
-            Write = 1
         }
     }
 }
