@@ -65,7 +65,7 @@ namespace Example
 
         private Func<int, byte> lowByte = w => (byte)((w) & 0xff); //or private byte lowByte(int w) { return (byte)((w) & 0xff); }
 
-        private Func<byte, byte, int> CombineBytes = (High, Low) => ((High << 8) | Low); //or private int CombineBytes(byte High, byte Low) { return (High << 8) | Low; }
+        private Func<byte, byte, Int16> CombineBytes = (High, Low) => (Int16)((High << 8) | Low); //or private int CombineBytes(byte High, byte Low) { return (High << 8) | Low; }
 
         public bool WriteRegister_Request(byte SlaveId, int StartAddress, int[] Data)
         {
@@ -109,7 +109,8 @@ namespace Example
             }
             catch
             {
-                throw new TimeoutException("no response from target. check the serial connection!"); 
+                //throw new TimeoutException("no response from target. check the serial connection!"); 
+                MessageBox.Show("no response from target. check the serial connection!");
             }
 
             byte[] Data_CRC = buffer.Where((source, index) => index >= buffer.Length - 2).ToArray();

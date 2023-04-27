@@ -1,9 +1,7 @@
 D:\Code\MyLibraries\C#\Modbus-CSharp\Example\bin\Debug\Example.exe.config
 D:\Code\MyLibraries\C#\Modbus-CSharp\Example\bin\Debug\Example.exe
 D:\Code\MyLibraries\C#\Modbus-CSharp\Example\bin\Debug\Example.pdb
-D:\Code\MyLibraries\C#\Modbus-CSharp\Example\bin\Debug\DevComponents.DotNetBar2.dll
 D:\Code\MyLibraries\C#\Modbus-CSharp\Example\bin\Debug\DevComponents.DotNetBar2.xml
-D:\Code\MyLibraries\C#\Modbus-CSharp\Example\obj\Debug\Example.csprojAssemblyReference.cache
 D:\Code\MyLibraries\C#\Modbus-CSharp\Example\obj\Debug\Example.Form1.resources
 D:\Code\MyLibraries\C#\Modbus-CSharp\Example\obj\Debug\Example.Properties.Resources.resources
 D:\Code\MyLibraries\C#\Modbus-CSharp\Example\obj\Debug\Example.csproj.GenerateResource.cache
@@ -11,3 +9,5 @@ D:\Code\MyLibraries\C#\Modbus-CSharp\Example\obj\Debug\Example.csproj.CoreCompil
 D:\Code\MyLibraries\C#\Modbus-CSharp\Example\obj\Debug\Example.csproj.CopyComplete
 D:\Code\MyLibraries\C#\Modbus-CSharp\Example\obj\Debug\Example.exe
 D:\Code\MyLibraries\C#\Modbus-CSharp\Example\obj\Debug\Example.pdb
+D:\Code\MyLibraries\C#\Modbus-CSharp\Example\obj\Debug\Example.csproj.AssemblyReference.cache
+D:\Code\MyLibraries\C#\Modbus-CSharp\Example\obj\Debug\Example.csproj.SuggestedBindingRedirects.cache

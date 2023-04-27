@@ -74,11 +74,11 @@ namespace Example
 
             else
             {
-                List<int> Data = modbus.Read_Request(Convert.ToByte(Slaveid3.Text), Convert.ToInt32(startaddress3.Text), Convert.ToInt32(count3.Text));
+                List<int> Data = modbus.ReadRegister_Request(Convert.ToByte(Slaveid3.Text), Convert.ToInt32(startaddress3.Text), Convert.ToInt32(count3.Text));
 
                 ReadRegisterList.Items.Clear();
 
-                ReadRegisterList.Items.AddRange(Data.Select((x, n) => "Address :" + (n + Convert.ToByte(startaddress3.Text)).ToString() + "        Value : " + x.ToString()).ToArray());
+                try { ReadRegisterList.Items.AddRange(Data.Select((x, n) => "Address :" + (n + Convert.ToByte(startaddress3.Text)).ToString() + "        Value : " + x.ToString()).ToArray()); } catch { }
             }
             //modbus.Write_Request(4, 0, new int[] { 1, 5, 5 });
 
@@ -128,7 +128,7 @@ namespace Example
         {
             byte slaveid = Convert.ToByte(Slaveid16.Text);
             int startAdd = Convert.ToInt32(startaddress16.Text);
-            bool success= modbus.Write_Request(slaveid, startAdd, WriteRegisterPanel.Controls.OfType<TextBox>().Select(x => Convert.ToInt32(x.Text)).ToArray());
+            bool success= modbus.WriteRegister_Request(slaveid, startAdd, WriteRegisterPanel.Controls.OfType<TextBox>().Select(x => Convert.ToInt32(x.Text)).ToArray());
             MessageBox.Show(success ? "Writing register is Successfull :)" : "Writing register Failed :(");
         }
     }
