@@ -144,7 +144,7 @@
             this.SerialStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SerialStatus.Location = new System.Drawing.Point(0, 383);
             this.SerialStatus.Name = "SerialStatus";
-            this.SerialStatus.Size = new System.Drawing.Size(722, 20);
+            this.SerialStatus.Size = new System.Drawing.Size(796, 20);
             this.SerialStatus.TabIndex = 2;
             // 
             // tabControl1
@@ -155,7 +155,7 @@
             this.tabControl1.Location = new System.Drawing.Point(175, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(547, 383);
+            this.tabControl1.Size = new System.Drawing.Size(621, 383);
             this.tabControl1.TabIndex = 2;
             // 
             // ReadRegisterTab
@@ -166,7 +166,7 @@
             this.ReadRegisterTab.Location = new System.Drawing.Point(4, 28);
             this.ReadRegisterTab.Name = "ReadRegisterTab";
             this.ReadRegisterTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ReadRegisterTab.Size = new System.Drawing.Size(539, 351);
+            this.ReadRegisterTab.Size = new System.Drawing.Size(613, 351);
             this.ReadRegisterTab.TabIndex = 0;
             this.ReadRegisterTab.Text = "Read Register";
             this.ReadRegisterTab.UseVisualStyleBackColor = true;
@@ -181,7 +181,7 @@
             this.ReadRegisterList.ItemHeight = 20;
             this.ReadRegisterList.Location = new System.Drawing.Point(3, 75);
             this.ReadRegisterList.Name = "ReadRegisterList";
-            this.ReadRegisterList.Size = new System.Drawing.Size(533, 273);
+            this.ReadRegisterList.Size = new System.Drawing.Size(607, 273);
             this.ReadRegisterList.TabIndex = 1;
             // 
             // mod3configs
@@ -196,7 +196,7 @@
             this.mod3configs.Dock = System.Windows.Forms.DockStyle.Top;
             this.mod3configs.Location = new System.Drawing.Point(3, 3);
             this.mod3configs.Name = "mod3configs";
-            this.mod3configs.Size = new System.Drawing.Size(533, 72);
+            this.mod3configs.Size = new System.Drawing.Size(607, 72);
             this.mod3configs.TabIndex = 0;
             this.mod3configs.TabStop = false;
             this.mod3configs.Text = "Config";
@@ -204,7 +204,7 @@
             // count3
             // 
             this.count3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.count3.Location = new System.Drawing.Point(373, 28);
+            this.count3.Location = new System.Drawing.Point(447, 28);
             this.count3.MaxLength = 3;
             this.count3.Name = "count3";
             this.count3.Size = new System.Drawing.Size(50, 27);
@@ -215,7 +215,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(316, 31);
+            this.label3.Location = new System.Drawing.Point(390, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 19);
             this.label3.TabIndex = 2;
@@ -224,7 +224,7 @@
             // startaddress3
             // 
             this.startaddress3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.startaddress3.Location = new System.Drawing.Point(253, 28);
+            this.startaddress3.Location = new System.Drawing.Point(290, 28);
             this.startaddress3.MaxLength = 2;
             this.startaddress3.Name = "startaddress3";
             this.startaddress3.Size = new System.Drawing.Size(50, 27);
@@ -235,7 +235,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 31);
+            this.label2.Location = new System.Drawing.Point(181, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 19);
             this.label2.TabIndex = 1;
@@ -262,7 +262,7 @@
             // ReadRegisterButt
             // 
             this.ReadRegisterButt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ReadRegisterButt.Location = new System.Drawing.Point(450, 24);
+            this.ReadRegisterButt.Location = new System.Drawing.Point(524, 24);
             this.ReadRegisterButt.Name = "ReadRegisterButt";
             this.ReadRegisterButt.Size = new System.Drawing.Size(75, 32);
             this.ReadRegisterButt.TabIndex = 3;
@@ -278,7 +278,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(523, 309);
+            this.tabPage2.Size = new System.Drawing.Size(539, 351);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Write Register";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -301,7 +301,7 @@
             this.WriteRegisterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.WriteRegisterPanel.Location = new System.Drawing.Point(3, 75);
             this.WriteRegisterPanel.Name = "WriteRegisterPanel";
-            this.WriteRegisterPanel.Size = new System.Drawing.Size(517, 231);
+            this.WriteRegisterPanel.Size = new System.Drawing.Size(533, 273);
             this.WriteRegisterPanel.TabIndex = 1;
             // 
             // mod16configs
@@ -316,7 +316,7 @@
             this.mod16configs.Dock = System.Windows.Forms.DockStyle.Top;
             this.mod16configs.Location = new System.Drawing.Point(3, 3);
             this.mod16configs.Name = "mod16configs";
-            this.mod16configs.Size = new System.Drawing.Size(517, 72);
+            this.mod16configs.Size = new System.Drawing.Size(533, 72);
             this.mod16configs.TabIndex = 0;
             this.mod16configs.TabStop = false;
             this.mod16configs.Text = "Config";
@@ -324,7 +324,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(434, 24);
+            this.button1.Location = new System.Drawing.Point(450, 24);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
             this.button1.TabIndex = 6;
@@ -335,7 +335,7 @@
             // count16
             // 
             this.count16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.count16.Location = new System.Drawing.Point(358, 28);
+            this.count16.Location = new System.Drawing.Point(374, 28);
             this.count16.MaxLength = 3;
             this.count16.Name = "count16";
             this.count16.Size = new System.Drawing.Size(50, 27);
@@ -346,7 +346,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(300, 31);
+            this.label4.Location = new System.Drawing.Point(316, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 19);
             this.label4.TabIndex = 2;
@@ -355,7 +355,7 @@
             // startaddress16
             // 
             this.startaddress16.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.startaddress16.Location = new System.Drawing.Point(246, 28);
+            this.startaddress16.Location = new System.Drawing.Point(254, 28);
             this.startaddress16.MaxLength = 2;
             this.startaddress16.Name = "startaddress16";
             this.startaddress16.Size = new System.Drawing.Size(50, 27);
@@ -366,7 +366,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(136, 31);
+            this.label5.Location = new System.Drawing.Point(144, 31);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 19);
             this.label5.TabIndex = 1;
@@ -394,13 +394,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(722, 403);
+            this.ClientSize = new System.Drawing.Size(796, 403);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.SerialGroupBox);
             this.Controls.Add(this.SerialStatus);
             this.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(740, 450);
+            this.MinimumSize = new System.Drawing.Size(814, 450);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
