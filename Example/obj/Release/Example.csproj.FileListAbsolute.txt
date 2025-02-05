@@ -1,0 +1,10 @@
+D:\Code\C#\Modbus-CSharp\Example\bin\Release\Example.exe.config
+D:\Code\C#\Modbus-CSharp\Example\bin\Release\Example.exe
+D:\Code\C#\Modbus-CSharp\Example\bin\Release\Example.pdb
+D:\Code\C#\Modbus-CSharp\Example\obj\Release\Example.csproj.AssemblyReference.cache
+D:\Code\C#\Modbus-CSharp\Example\obj\Release\Example.Form1.resources
+D:\Code\C#\Modbus-CSharp\Example\obj\Release\Example.Properties.Resources.resources
+D:\Code\C#\Modbus-CSharp\Example\obj\Release\Example.csproj.GenerateResource.cache
+D:\Code\C#\Modbus-CSharp\Example\obj\Release\Example.csproj.CoreCompileInputs.cache
+D:\Code\C#\Modbus-CSharp\Example\obj\Release\Example.exe
+D:\Code\C#\Modbus-CSharp\Example\obj\Release\Example.pdb
