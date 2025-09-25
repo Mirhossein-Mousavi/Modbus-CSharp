@@ -58,6 +58,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.Slaveid16 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.status_panel = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.SerialGroupBox.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ReadRegisterTab.SuspendLayout();
@@ -77,6 +79,8 @@
             // 
             // SerialGroupBox
             // 
+            this.SerialGroupBox.Controls.Add(this.label7);
+            this.SerialGroupBox.Controls.Add(this.status_panel);
             this.SerialGroupBox.Controls.Add(this.PortLabel);
             this.SerialGroupBox.Controls.Add(this.BaudrateLable);
             this.SerialGroupBox.Controls.Add(this.SerialConnect);
@@ -278,7 +282,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(539, 351);
+            this.tabPage2.Size = new System.Drawing.Size(613, 351);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Write Register";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -301,7 +305,7 @@
             this.WriteRegisterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.WriteRegisterPanel.Location = new System.Drawing.Point(3, 75);
             this.WriteRegisterPanel.Name = "WriteRegisterPanel";
-            this.WriteRegisterPanel.Size = new System.Drawing.Size(533, 273);
+            this.WriteRegisterPanel.Size = new System.Drawing.Size(607, 273);
             this.WriteRegisterPanel.TabIndex = 1;
             // 
             // mod16configs
@@ -316,7 +320,7 @@
             this.mod16configs.Dock = System.Windows.Forms.DockStyle.Top;
             this.mod16configs.Location = new System.Drawing.Point(3, 3);
             this.mod16configs.Name = "mod16configs";
-            this.mod16configs.Size = new System.Drawing.Size(533, 72);
+            this.mod16configs.Size = new System.Drawing.Size(607, 72);
             this.mod16configs.TabIndex = 0;
             this.mod16configs.TabStop = false;
             this.mod16configs.Text = "Config";
@@ -324,7 +328,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(450, 24);
+            this.button1.Location = new System.Drawing.Point(524, 24);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
             this.button1.TabIndex = 6;
@@ -335,7 +339,7 @@
             // count16
             // 
             this.count16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.count16.Location = new System.Drawing.Point(374, 28);
+            this.count16.Location = new System.Drawing.Point(448, 28);
             this.count16.MaxLength = 3;
             this.count16.Name = "count16";
             this.count16.Size = new System.Drawing.Size(50, 27);
@@ -346,7 +350,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(316, 31);
+            this.label4.Location = new System.Drawing.Point(390, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 19);
             this.label4.TabIndex = 2;
@@ -355,7 +359,7 @@
             // startaddress16
             // 
             this.startaddress16.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.startaddress16.Location = new System.Drawing.Point(254, 28);
+            this.startaddress16.Location = new System.Drawing.Point(291, 28);
             this.startaddress16.MaxLength = 2;
             this.startaddress16.Name = "startaddress16";
             this.startaddress16.Size = new System.Drawing.Size(50, 27);
@@ -366,7 +370,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(144, 31);
+            this.label5.Location = new System.Drawing.Point(181, 31);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 19);
             this.label5.TabIndex = 1;
@@ -389,6 +393,23 @@
             this.label6.Size = new System.Drawing.Size(68, 19);
             this.label6.TabIndex = 0;
             this.label6.Text = "SlaveID :";
+            // 
+            // status_panel
+            // 
+            this.status_panel.BackColor = System.Drawing.Color.Transparent;
+            this.status_panel.Location = new System.Drawing.Point(135, 342);
+            this.status_panel.Name = "status_panel";
+            this.status_panel.Size = new System.Drawing.Size(20, 20);
+            this.status_panel.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 342);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 19);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Status:";
             // 
             // Form1
             // 
@@ -449,6 +470,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel WriteRegisterPanel;
         private System.Windows.Forms.Button WriteRegisterButt;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel status_panel;
     }
 }
 

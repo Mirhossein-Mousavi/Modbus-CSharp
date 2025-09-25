@@ -79,6 +79,8 @@ namespace Example
                 ReadRegisterList.Items.Clear();
 
                 try { ReadRegisterList.Items.AddRange(Data.Select((x, n) => "Address :" + (n + Convert.ToByte(startaddress3.Text)).ToString() + "        Value : " + x.ToString()).ToArray()); } catch { }
+
+                status_panel.BackColor = Color.DarkGreen;
             }
             //modbus.Write_Request(4, 0, new int[] { 1, 5, 5 });
 
@@ -129,7 +131,9 @@ namespace Example
             byte slaveid = Convert.ToByte(Slaveid16.Text);
             int startAdd = Convert.ToInt32(startaddress16.Text);
             bool success= modbus.WriteRegister_Request(slaveid, startAdd, WriteRegisterPanel.Controls.OfType<TextBox>().Select(x => Convert.ToInt32(x.Text)).ToArray());
-            MessageBox.Show(success ? "Writing register is Successfull :)" : "Writing register Failed :(");
+            //MessageBox.Show(success ? "Writing register is Successfull :)" : "Writing register Failed :(");
+            if (success) status_panel.BackColor = Color.DarkGreen;
+            else status_panel.BackColor = Color.Crimson;
         }
     }
 }

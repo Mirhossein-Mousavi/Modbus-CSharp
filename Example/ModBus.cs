@@ -22,6 +22,7 @@ namespace Example
             _Serial.StopBits = StopBits.One;
             _Serial.DataBits = 8;
             _Serial.Parity = Parity.None;
+      
         }
 
 
@@ -85,10 +86,15 @@ namespace Example
                 crc = Checksum(CheckData);
                 CheckData.AddRange(new byte[] { highByte(crc), lowByte(crc) });
                 return buffer.SequenceEqual(CheckData.ToArray());
+                //return true;
             }
             catch
             {
-                throw new TimeoutException("no response from target. check the serial connection!");
+                //throw new TimeoutException("no response from target. check the serial connection!");
+                //MessageBox.Show("no response from target.check the serial connection!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+                //List<byte> CheckData = new byte[] {  }.ToList();
+                return false;
             }
         }
 
